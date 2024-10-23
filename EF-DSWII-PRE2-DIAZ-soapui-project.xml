@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="cb3afcfa-e71d-42e3-bf82-62eacf9a576d" activeEnvironment="Default" name="EF-DSWII-PRE2-DIAZ" resourceRoot="" soapui-version="5.7.2" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="dca13b44-4430-46e0-a3d3-a20e42f90441" wsaVersion="NONE" name="ClientesPortSoap11" type="wsdl" bindingName="{http://www.cibertec.edu.pe/ws/objects}ClientesPortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/ws/clientes.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/ws/clientes.wsdl"><con:part><con:url>http://localhost:8080/ws/clientes.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.cibertec.edu.pe/ws/objects" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.cibertec.edu.pe/ws/objects" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.cibertec.edu.pe/ws/objects">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.cibertec.edu.pe/ws/objects" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="clientews">
+        <xs:sequence>
+          <xs:element name="id" type="xs:int"/>
+          <xs:element name="nombre" type="xs:string"/>
+          <xs:element name="email" type="xs:string"/>
+          <xs:element name="telefono" type="xs:string"/>
+          <xs:element name="direccion" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <!--obtener todos los clientes-->
+      <xs:element name="getClientesRequest">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getClientesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="clientes" type="tns:clientews"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!--obtener cliente específico por ID-->
+      <xs:element name="getClienteRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="id" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getClienteResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="cliente" type="tns:clientews"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!--crear un nuevo cliente-->
+      <xs:element name="postClienteRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="cliente" type="tns:clientews"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="postClienteResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="cliente" type="tns:clientews"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!--actualizar un cliente-->
+      <xs:element name="actuClienteRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="cliente" type="tns:clientews"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="actuClienteResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="cliente" type="tns:clientews"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="postClienteRequest">
+    <wsdl:part element="tns:postClienteRequest" name="postClienteRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="actuClienteResponse">
+    <wsdl:part element="tns:actuClienteResponse" name="actuClienteResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getClienteRequest">
+    <wsdl:part element="tns:getClienteRequest" name="getClienteRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getClientesRequest">
+    <wsdl:part element="tns:getClientesRequest" name="getClientesRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getClienteResponse">
+    <wsdl:part element="tns:getClienteResponse" name="getClienteResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getClientesResponse">
+    <wsdl:part element="tns:getClientesResponse" name="getClientesResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="postClienteResponse">
+    <wsdl:part element="tns:postClienteResponse" name="postClienteResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="actuClienteRequest">
+    <wsdl:part element="tns:actuClienteRequest" name="actuClienteRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ClientesPort">
+    <wsdl:operation name="postCliente">
+      <wsdl:input message="tns:postClienteRequest" name="postClienteRequest"></wsdl:input>
+      <wsdl:output message="tns:postClienteResponse" name="postClienteResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actuCliente">
+      <wsdl:input message="tns:actuClienteRequest" name="actuClienteRequest"></wsdl:input>
+      <wsdl:output message="tns:actuClienteResponse" name="actuClienteResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCliente">
+      <wsdl:input message="tns:getClienteRequest" name="getClienteRequest"></wsdl:input>
+      <wsdl:output message="tns:getClienteResponse" name="getClienteResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClientes">
+      <wsdl:input message="tns:getClientesRequest" name="getClientesRequest"></wsdl:input>
+      <wsdl:output message="tns:getClientesResponse" name="getClientesResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ClientesPortSoap11" type="tns:ClientesPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="postCliente">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="postClienteRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="postClienteResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actuCliente">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="actuClienteRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="actuClienteResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCliente">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getClienteRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getClienteResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClientes">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getClientesRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getClientesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ClientesPortService">
+    <wsdl:port binding="tns:ClientesPortSoap11" name="ClientesPortSoap11">
+      <soap:address location="http://localhost:8080/ws/clientes"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/ws/clientes</con:endpoint></con:endpoints><con:operation id="9b9d9e20-6334-4539-b3cf-f62550de52c3" isOneWay="false" action="" name="actuCliente" bindingOperationName="actuCliente" type="Request-Response" outputName="actuClienteResponse" inputName="actuClienteRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e4d1d0f3-af33-4bde-8d49-ef511620f714" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/clientes</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:obj="http://www.cibertec.edu.pe/ws/objects">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <obj:actuClienteRequest>\r
+         <obj:cliente>\r
+            <obj:id>9</obj:id>\r
+            <obj:nombre>Anilu Diaz</obj:nombre>\r
+            <obj:email>frutilupy@gmail.com</obj:email>\r
+            <obj:telefono>928682303</obj:telefono>\r
+            <obj:direccion>Av.Colonial</obj:direccion>\r
+         </obj:cliente>\r
+      </obj:actuClienteRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.cibertec.edu.pe/ws/objects/ClientesPort/actuClienteRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="87926aa7-20e5-4655-ad71-bfaf4b463fb5" isOneWay="false" action="" name="getCliente" bindingOperationName="getCliente" type="Request-Response" outputName="getClienteResponse" inputName="getClienteRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0702ec2f-aa10-40f1-864a-782e04a734a5" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/clientes</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:obj="http://www.cibertec.edu.pe/ws/objects">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <obj:getClienteRequest>\r
+         <obj:id>1</obj:id>\r
+      </obj:getClienteRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.cibertec.edu.pe/ws/objects/ClientesPort/getClienteRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="0b7c2236-ff78-43f2-8d76-4d8f7a80c59e" isOneWay="false" action="" name="getClientes" bindingOperationName="getClientes" type="Request-Response" outputName="getClientesResponse" inputName="getClientesRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="cefc15b4-3c90-45f4-8a5b-27b5b41e30fb" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/clientes</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:obj="http://www.cibertec.edu.pe/ws/objects">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <obj:getClientesRequest/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.cibertec.edu.pe/ws/objects/ClientesPort/getClientesRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="c66cdd39-61f3-486c-ad3b-552fa23d13d8" isOneWay="false" action="" name="postCliente" bindingOperationName="postCliente" type="Request-Response" outputName="postClienteResponse" inputName="postClienteRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="96d8ea6c-3195-431a-95c4-0a211f6a1847" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/clientes</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:obj="http://www.cibertec.edu.pe/ws/objects">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <obj:postClienteRequest>\r
+         <obj:cliente>\r
+            <obj:id>?</obj:id>\r
+            <obj:nombre>Anilu Diaz</obj:nombre>\r
+            <obj:email>anilucdl22@gmail.com</obj:email>\r
+            <obj:telefono>928682303</obj:telefono>\r
+            <obj:direccion>Av.Colonial</obj:direccion>\r
+         </obj:cliente>\r
+      </obj:postClienteRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.cibertec.edu.pe/ws/objects/ClientesPort/postClienteRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="c93b13bb-8bc0-466e-8165-ccc07a76e01c" wsaVersion="NONE" name="EmpleadosPortSoap11" type="wsdl" bindingName="{http://www.cibertec.edu.pe/ws/objects}EmpleadosPortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/ws/empleados.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/ws/empleados.wsdl"><con:part><con:url>http://localhost:8080/ws/empleados.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.cibertec.edu.pe/ws/objects" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.cibertec.edu.pe/ws/objects" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.cibertec.edu.pe/ws/objects">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.cibertec.edu.pe/ws/objects" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="empleadow">
+        <xs:sequence>
+          <xs:element name="id" type="xs:int"/>
+          <xs:element name="nombre" type="xs:string"/>
+          <xs:element name="puesto" type="xs:string"/>
+          <xs:element name="telefono" type="xs:string"/>
+          <xs:element name="email" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <!--obtener todos los empleados-->
+      <xs:element name="getEmpleadosRequest">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getEmpleadosResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="empleados" type="tns:empleadow"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!--obtener empleado específico por ID-->
+      <xs:element name="getEmpleadoRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="id" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getEmpleadoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="empleado" type="tns:empleadow"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!--crear un nuevo empleado-->
+      <xs:element name="postEmpleadoRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="empleado" type="tns:empleadow"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="postEmpleadoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="empleado" type="tns:empleadow"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!--actualizar un empleado-->
+      <xs:element name="actuEmpleadoRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="empleado" type="tns:empleadow"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="actuEmpleadoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="empleado" type="tns:empleadow"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getEmpleadosResponse">
+    <wsdl:part element="tns:getEmpleadosResponse" name="getEmpleadosResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmpleadoRequest">
+    <wsdl:part element="tns:getEmpleadoRequest" name="getEmpleadoRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="actuEmpleadoRequest">
+    <wsdl:part element="tns:actuEmpleadoRequest" name="actuEmpleadoRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="actuEmpleadoResponse">
+    <wsdl:part element="tns:actuEmpleadoResponse" name="actuEmpleadoResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmpleadosRequest">
+    <wsdl:part element="tns:getEmpleadosRequest" name="getEmpleadosRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="postEmpleadoResponse">
+    <wsdl:part element="tns:postEmpleadoResponse" name="postEmpleadoResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmpleadoResponse">
+    <wsdl:part element="tns:getEmpleadoResponse" name="getEmpleadoResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="postEmpleadoRequest">
+    <wsdl:part element="tns:postEmpleadoRequest" name="postEmpleadoRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="EmpleadosPort">
+    <wsdl:operation name="getEmpleados">
+      <wsdl:input message="tns:getEmpleadosRequest" name="getEmpleadosRequest"></wsdl:input>
+      <wsdl:output message="tns:getEmpleadosResponse" name="getEmpleadosResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmpleado">
+      <wsdl:input message="tns:getEmpleadoRequest" name="getEmpleadoRequest"></wsdl:input>
+      <wsdl:output message="tns:getEmpleadoResponse" name="getEmpleadoResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actuEmpleado">
+      <wsdl:input message="tns:actuEmpleadoRequest" name="actuEmpleadoRequest"></wsdl:input>
+      <wsdl:output message="tns:actuEmpleadoResponse" name="actuEmpleadoResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="postEmpleado">
+      <wsdl:input message="tns:postEmpleadoRequest" name="postEmpleadoRequest"></wsdl:input>
+      <wsdl:output message="tns:postEmpleadoResponse" name="postEmpleadoResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EmpleadosPortSoap11" type="tns:EmpleadosPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getEmpleados">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getEmpleadosRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEmpleadosResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmpleado">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getEmpleadoRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEmpleadoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actuEmpleado">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="actuEmpleadoRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="actuEmpleadoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="postEmpleado">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="postEmpleadoRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="postEmpleadoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EmpleadosPortService">
+    <wsdl:port binding="tns:EmpleadosPortSoap11" name="EmpleadosPortSoap11">
+      <soap:address location="http://localhost:8080/ws/empleados"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/ws/empleados</con:endpoint></con:endpoints><con:operation id="7f5ca809-e904-4d74-8417-ee267f0aed8d" isOneWay="false" action="" name="actuEmpleado" bindingOperationName="actuEmpleado" type="Request-Response" outputName="actuEmpleadoResponse" inputName="actuEmpleadoRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="85643d99-4f2f-4ab4-b34f-8d0ec9dd65ce" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/empleados</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:obj="http://www.cibertec.edu.pe/ws/objects">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <obj:actuEmpleadoRequest>\r
+         <obj:empleado>\r
+            <obj:id>9</obj:id>
+            <obj:nombre>Clara Pérez</obj:nombre>
+            <obj:puesto>Planificadora de Eventos</obj:puesto>
+            <obj:telefono>999384765</obj:telefono>
+            <obj:email>clara.perez@email.com</obj:email>
+         </obj:empleado>\r
+      </obj:actuEmpleadoRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.cibertec.edu.pe/ws/objects/EmpleadosPort/actuEmpleadoRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="e1310b05-8357-400c-89dd-d3b0ae1fe77b" isOneWay="false" action="" name="getEmpleado" bindingOperationName="getEmpleado" type="Request-Response" outputName="getEmpleadoResponse" inputName="getEmpleadoRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="646482db-85c9-4c7a-89c7-92833b7b0e30" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/empleados</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:obj="http://www.cibertec.edu.pe/ws/objects">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <obj:getEmpleadoRequest>\r
+         <obj:id>?</obj:id>\r
+      </obj:getEmpleadoRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.cibertec.edu.pe/ws/objects/EmpleadosPort/getEmpleadoRequest"/></con:call></con:operation><con:operation id="10558626-b9bf-4d17-8716-f769de603049" isOneWay="false" action="" name="getEmpleados" bindingOperationName="getEmpleados" type="Request-Response" outputName="getEmpleadosResponse" inputName="getEmpleadosRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8e938d15-bc89-421d-9375-6035bf153a44" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/empleados</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:obj="http://www.cibertec.edu.pe/ws/objects">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <obj:getEmpleadosRequest/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.cibertec.edu.pe/ws/objects/EmpleadosPort/getEmpleadosRequest"/></con:call></con:operation><con:operation id="ccf41f75-e3ad-48c1-ad11-c5a05d745444" isOneWay="false" action="" name="postEmpleado" bindingOperationName="postEmpleado" type="Request-Response" outputName="postEmpleadoResponse" inputName="postEmpleadoRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0f9ce11f-b69f-4ee2-b3b9-14de92043794" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/empleados</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:obj="http://www.cibertec.edu.pe/ws/objects">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <obj:postEmpleadoRequest>\r
+         <obj:empleado>\r
+            <obj:id>?</obj:id>\r
+            <obj:nombre>Clara Pérez</obj:nombre>\r
+            <obj:puesto>Planificadora de Eventos</obj:puesto>\r
+            <obj:telefono>666654321</obj:telefono>\r
+            <obj:email>clara.perez@email.com</obj:email>\r
+         </obj:empleado>\r
+      </obj:postEmpleadoRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.cibertec.edu.pe/ws/objects/EmpleadosPort/postEmpleadoRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="5938b8aa-7d08-4a2e-9c79-0a7c5824ebb8" wsaVersion="NONE" name="ProveedoresPortSoap11" type="wsdl" bindingName="{http://www.cibertec.edu.pe/ws/objects}ProveedoresPortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/ws/proveedores.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/ws/proveedores.wsdl"><con:part><con:url>http://localhost:8080/ws/proveedores.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.cibertec.edu.pe/ws/objects" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.cibertec.edu.pe/ws/objects" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.cibertec.edu.pe/ws/objects">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.cibertec.edu.pe/ws/objects" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="proveedorws">
+        <xs:sequence>
+          <xs:element name="id" type="xs:int"/>
+          <xs:element name="nombre_proveedor" type="xs:string"/>
+          <xs:element name="tipo_servicio" type="xs:string"/>
+          <xs:element name="contacto" type="xs:string"/>
+          <xs:element name="email" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <!--obtener todos los proveedores-->
+      <xs:element name="getProveedoresRequest">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getProveedoresResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="proveedores" type="tns:proveedorws"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!--obtener proveedor específico por ID-->
+      <xs:element name="getProveedorRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="id" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getProveedorResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="proveedor" type="tns:proveedorws"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!--crear un nuevo proveedor-->
+      <xs:element name="postProveedorRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="proveedor" type="tns:proveedorws"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="postProveedorResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="proveedor" type="tns:proveedorws"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!--actualizar un proveedor-->
+      <xs:element name="actuProveedorRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="proveedor" type="tns:proveedorws"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="actuProveedorResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="proveedor" type="tns:proveedorws"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="actuProveedorRequest">
+    <wsdl:part element="tns:actuProveedorRequest" name="actuProveedorRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProveedoresRequest">
+    <wsdl:part element="tns:getProveedoresRequest" name="getProveedoresRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProveedorResponse">
+    <wsdl:part element="tns:getProveedorResponse" name="getProveedorResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="postProveedorRequest">
+    <wsdl:part element="tns:postProveedorRequest" name="postProveedorRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProveedoresResponse">
+    <wsdl:part element="tns:getProveedoresResponse" name="getProveedoresResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="postProveedorResponse">
+    <wsdl:part element="tns:postProveedorResponse" name="postProveedorResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="actuProveedorResponse">
+    <wsdl:part element="tns:actuProveedorResponse" name="actuProveedorResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProveedorRequest">
+    <wsdl:part element="tns:getProveedorRequest" name="getProveedorRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ProveedoresPort">
+    <wsdl:operation name="actuProveedor">
+      <wsdl:input message="tns:actuProveedorRequest" name="actuProveedorRequest"></wsdl:input>
+      <wsdl:output message="tns:actuProveedorResponse" name="actuProveedorResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProveedores">
+      <wsdl:input message="tns:getProveedoresRequest" name="getProveedoresRequest"></wsdl:input>
+      <wsdl:output message="tns:getProveedoresResponse" name="getProveedoresResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProveedor">
+      <wsdl:input message="tns:getProveedorRequest" name="getProveedorRequest"></wsdl:input>
+      <wsdl:output message="tns:getProveedorResponse" name="getProveedorResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="postProveedor">
+      <wsdl:input message="tns:postProveedorRequest" name="postProveedorRequest"></wsdl:input>
+      <wsdl:output message="tns:postProveedorResponse" name="postProveedorResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProveedoresPortSoap11" type="tns:ProveedoresPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="actuProveedor">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="actuProveedorRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="actuProveedorResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProveedores">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getProveedoresRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getProveedoresResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProveedor">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getProveedorRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getProveedorResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="postProveedor">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="postProveedorRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="postProveedorResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProveedoresPortService">
+    <wsdl:port binding="tns:ProveedoresPortSoap11" name="ProveedoresPortSoap11">
+      <soap:address location="http://localhost:8080/ws/proveedores"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/ws/proveedores</con:endpoint></con:endpoints><con:operation id="8e73ac9b-a29a-4da8-a4b2-63855a66932e" isOneWay="false" action="" name="actuProveedor" bindingOperationName="actuProveedor" type="Request-Response" outputName="actuProveedorResponse" inputName="actuProveedorRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="72db391d-1a09-4ec5-b913-274fb1469332" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/proveedores</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:obj="http://www.cibertec.edu.pe/ws/objects">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <obj:actuProveedorRequest>\r
+         <obj:proveedor>\r
+            <obj:id>9</obj:id>
+            <obj:nombre_proveedor>Floristería Bella</obj:nombre_proveedor>
+            <obj:tipo_servicio>Flores</obj:tipo_servicio>
+            <obj:contacto>Marta Soza</obj:contacto>
+            <obj:email>floristeria.bella@email.com</obj:email>
+         </obj:proveedor>\r
+      </obj:actuProveedorRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.cibertec.edu.pe/ws/objects/ProveedoresPort/actuProveedorRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="be4bd17a-c041-409c-a4ac-1610cc3d2e0c" isOneWay="false" action="" name="getProveedor" bindingOperationName="getProveedor" type="Request-Response" outputName="getProveedorResponse" inputName="getProveedorRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="18d61a3a-c4f0-4cab-a9fc-43349d8bd556" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/proveedores</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:obj="http://www.cibertec.edu.pe/ws/objects">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <obj:getProveedorRequest>\r
+         <obj:id>?</obj:id>\r
+      </obj:getProveedorRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.cibertec.edu.pe/ws/objects/ProveedoresPort/getProveedorRequest"/></con:call></con:operation><con:operation id="d7574587-5ed3-4a3b-bfbc-562ae83bec2b" isOneWay="false" action="" name="getProveedores" bindingOperationName="getProveedores" type="Request-Response" outputName="getProveedoresResponse" inputName="getProveedoresRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ffd86bb6-19f3-4858-9916-67dfd9ee0bf8" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/proveedores</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:obj="http://www.cibertec.edu.pe/ws/objects">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <obj:getProveedoresRequest/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.cibertec.edu.pe/ws/objects/ProveedoresPort/getProveedoresRequest"/></con:call></con:operation><con:operation id="2fb972f7-b33e-4ff5-9045-75452b3dc270" isOneWay="false" action="" name="postProveedor" bindingOperationName="postProveedor" type="Request-Response" outputName="postProveedorResponse" inputName="postProveedorRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="bd589209-52c4-4dab-a6eb-0089a2f8a69f" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/proveedores</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:obj="http://www.cibertec.edu.pe/ws/objects">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <obj:postProveedorRequest>\r
+         <obj:proveedor>\r
+            <obj:id>?</obj:id>\r
+            <obj:nombre_proveedor>Floristería Bella</obj:nombre_proveedor>\r
+            <obj:tipo_servicio>Flores</obj:tipo_servicio>\r
+            <obj:contacto>Marta</obj:contacto>\r
+            <obj:email>floristeria.bella@email.com</obj:email>\r
+         </obj:proveedor>\r
+      </obj:postProveedorRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.cibertec.edu.pe/ws/objects/ProveedoresPort/postProveedorRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
