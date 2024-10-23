@@ -1,0 +1,82 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://www.cibertec.edu.pe/ws/objects"
+           targetNamespace="http://www.cibertec.edu.pe/ws/objects"
+           elementFormDefault="qualified">
+
+
+    <xs:complexType name="clientews">
+        <xs:sequence>
+            <xs:element name="id" type="xs:int"/>
+            <xs:element name="nombre" type="xs:string"/>
+            <xs:element name="email" type="xs:string"/>
+            <xs:element name="telefono" type="xs:string"/>
+            <xs:element name="direccion" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- obtener todos los clientes -->
+    <xs:element name="getClientesRequest">
+        <xs:complexType>
+            <xs:sequence />
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getClientesResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="clientes" type="tns:clientews" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <!-- obtener cliente específico por ID -->
+    <xs:element name="getClienteRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getClienteResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cliente" type="tns:clientews"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <!-- crear un nuevo cliente -->
+    <xs:element name="postClienteRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cliente" type="tns:clientews"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="postClienteResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cliente" type="tns:clientews"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <!-- actualizar un cliente-->
+    <xs:element name="actuClienteRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cliente" type="tns:clientews"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="actuClienteResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cliente" type="tns:clientews"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+
+</xs:schema>

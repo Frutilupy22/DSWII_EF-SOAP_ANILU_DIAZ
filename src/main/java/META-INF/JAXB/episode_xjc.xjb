@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bindings version="3.0" xmlns="https://jakarta.ee/xml/ns/jaxb">
+  <!--
+
+Este archivo ha sido generado por Eclipse Implementation of JAXB v3.0.0 
+Visite https://eclipse-ee4j.github.io/jaxb-ri 
+Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+Generado el: 2024.10.22 a las 11:17:59 PM PET 
+
+  -->
+  <bindings scd="x-schema::tns" xmlns:tns="http://www.cibertec.edu.pe/ws/clientes">
+    <schemaBindings map="false">
+      <package name="pe.edu.cibertec.ws.clientes"/>
+    </schemaBindings>
+    <bindings scd="tns:getClienteRequest">
+      <class ref="pe.edu.cibertec.ws.clientes.GetClienteRequest"/>
+    </bindings>
+    <bindings scd="tns:getClienteResponse">
+      <class ref="pe.edu.cibertec.ws.clientes.GetClienteResponse"/>
+    </bindings>
+    <bindings scd="~tns:cliente">
+      <class ref="pe.edu.cibertec.ws.clientes.Cliente"/>
+    </bindings>
+  </bindings>
+</bindings>
+

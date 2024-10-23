@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bindings version="3.0" xmlns="https://jakarta.ee/xml/ns/jaxb">
+  <!--
+
+Este archivo ha sido generado por Eclipse Implementation of JAXB v3.0.0 
+Visite https://eclipse-ee4j.github.io/jaxb-ri 
+Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+Generado el: 2024.10.23 a las 04:23:40 AM PET 
+
+  -->
+  <bindings scd="x-schema::tns" xmlns:tns="http://www.cibertec.edu.pe/ws/objects">
+    <schemaBindings map="false">
+      <package name="pe.edu.cibertec.ws.objects"/>
+    </schemaBindings>
+    <bindings scd="tns:getClientesRequest">
+      <class ref="pe.edu.cibertec.ws.objects.GetClientesRequest"/>
+    </bindings>
+    <bindings scd="tns:getClientesResponse">
+      <class ref="pe.edu.cibertec.ws.objects.GetClientesResponse"/>
+    </bindings>
+    <bindings scd="~tns:clientews">
+      <class ref="pe.edu.cibertec.ws.objects.Clientews"/>
+    </bindings>
+    <bindings scd="tns:getClienteRequest">
+      <class ref="pe.edu.cibertec.ws.objects.GetClienteRequest"/>
+    </bindings>
+    <bindings scd="tns:getClienteResponse">
+      <class ref="pe.edu.cibertec.ws.objects.GetClienteResponse"/>
+    </bindings>
+    <bindings scd="tns:postClienteRequest">
+      <class ref="pe.edu.cibertec.ws.objects.PostClienteRequest"/>
+    </bindings>
+    <bindings scd="tns:postClienteResponse">
+      <class ref="pe.edu.cibertec.ws.objects.PostClienteResponse"/>
+    </bindings>
+    <bindings scd="tns:actuClienteRequest">
+      <class ref="pe.edu.cibertec.ws.objects.ActuClienteRequest"/>
+    </bindings>
+    <bindings scd="tns:actuClienteResponse">
+      <class ref="pe.edu.cibertec.ws.objects.ActuClienteResponse"/>
+    </bindings>
+    <bindings scd="tns:getEventosRequest">
+      <class ref="pe.edu.cibertec.ws.objects.GetEventosRequest"/>
+    </bindings>
+    <bindings scd="tns:getEventosResponse">
+      <class ref="pe.edu.cibertec.ws.objects.GetEventosResponse"/>
+    </bindings>
+    <bindings scd="~tns:eventows">
+      <class ref="pe.edu.cibertec.ws.objects.Eventows"/>
+    </bindings>
+    <bindings scd="tns:getEventoRequest">
+      <class ref="pe.edu.cibertec.ws.objects.GetEventoRequest"/>
+    </bindings>
+    <bindings scd="tns:getEventoResponse">
+      <class ref="pe.edu.cibertec.ws.objects.GetEventoResponse"/>
+    </bindings>
+    <bindings scd="tns:postEventoRequest">
+      <class ref="pe.edu.cibertec.ws.objects.PostEventoRequest"/>
+    </bindings>
+    <bindings scd="tns:postEventoResponse">
+      <class ref="pe.edu.cibertec.ws.objects.PostEventoResponse"/>
+    </bindings>
+    <bindings scd="tns:actuEventoRequest">
+      <class ref="pe.edu.cibertec.ws.objects.ActuEventoRequest"/>
+    </bindings>
+    <bindings scd="tns:actuEventoResponse">
+      <class ref="pe.edu.cibertec.ws.objects.ActuEventoResponse"/>
+    </bindings>
+    <bindings scd="tns:getProveedoresRequest">
+      <class ref="pe.edu.cibertec.ws.objects.GetProveedoresRequest"/>
+    </bindings>
+    <bindings scd="tns:getProveedoresResponse">
+      <class ref="pe.edu.cibertec.ws.objects.GetProveedoresResponse"/>
+    </bindings>
+    <bindings scd="~tns:proveedorws">
+      <class ref="pe.edu.cibertec.ws.objects.Proveedorws"/>
+    </bindings>
+    <bindings scd="tns:getProveedorRequest">
+      <class ref="pe.edu.cibertec.ws.objects.GetProveedorRequest"/>
+    </bindings>
+    <bindings scd="tns:getProveedorResponse">
+      <class ref="pe.edu.cibertec.ws.objects.GetProveedorResponse"/>
+    </bindings>
+    <bindings scd="tns:postProveedorRequest">
+      <class ref="pe.edu.cibertec.ws.objects.PostProveedorRequest"/>
+    </bindings>
+    <bindings scd="tns:postProveedorResponse">
+      <class ref="pe.edu.cibertec.ws.objects.PostProveedorResponse"/>
+    </bindings>
+    <bindings scd="tns:actuProveedorRequest">
+      <class ref="pe.edu.cibertec.ws.objects.ActuProveedorRequest"/>
+    </bindings>
+    <bindings scd="tns:actuProveedorResponse">
+      <class ref="pe.edu.cibertec.ws.objects.ActuProveedorResponse"/>
+    </bindings>
+  </bindings>
+</bindings>
+
